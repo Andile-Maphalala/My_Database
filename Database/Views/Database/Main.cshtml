@@ -1,0 +1,56 @@
+﻿@model List<Database_Project.ViewModels.EmployeeViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/StyleSheets/Main.css" rel="stylesheet" />
+    <title>Main</title>
+</head>
+<body>
+    <div>
+        @if (!String.IsNullOrEmpty(ViewBag.Message))
+        {
+            <strong>@ViewBag.Message</strong>
+        }
+        else
+        {
+            <h1>List Of Employees In Database</h1>
+        }
+        <br />
+        <table id="Content" align="center">
+            <tr>
+                <th>Shop Items</th>
+            </tr>
+            <tr>
+                <th>Employee Name</th>
+                <th>Employee Surname</th>
+                <th>Employee Salary</th>
+                <th>Employee Age</th>
+                <th></th>
+
+            </tr>
+            @foreach (var Employee in Model)
+            {
+                <tr>
+
+                    <td>@Employee.mName</td>
+                    <td>@Employee.mSurname</td>
+                    <td>@Employee.mSalary</td>
+                    <td>@Employee.mAge</td>
+                    <td><button onclick="window.location.href='@Url.Action("Delete", "Database", new { ID = Employee.mID })';" name="Delete"> Delete</button></td>
+                    <td><button onclick="window.location.href='@Url.Action("Update", "Database",new { ID = Employee.mID })';" name="Update"> Update</button></td>
+
+                </tr>
+            }
+        </table>
+        <br /><br />
+        <button onclick="window.location.href='@Url.Action("Add", "Database")';" name="Add"> Add</button>
+    </div>
+</body>
+</html>

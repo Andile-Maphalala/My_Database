@@ -1,0 +1,138 @@
+﻿body {
+  background-color : gray;
+}
+#Content tr:nth-child(even){
+    background-color: #b8d1f3;
+
+}
+
+#Content tr:nth-child(odd){
+    background-color: #dae5f4;
+
+}
+
+#Content tr:hover {
+    background-color: lightgrey;
+
+}
+
+#Content th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: darkgray;
+  color: white;
+  font-size : 20px;
+}
+
+#Content{
+    width : 70%;
+    font-size : 18px;
+}
+div{
+    text-align:center;
+}
+h1{
+    text-align : center;
+    font-size: 50px;
+}
+
+button{
+    width : 200px;
+    height : 50px;
+    border-radius : 12px;
+    border: 2px solid;
+    padding: 10px;
+    box-shadow: 6px 6px #888888;
+}
+.Top{
+   text-align :left;
+   background-color : white;
+   column-span :all;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+h3{
+     text-decoration: underline;
+}
+
+.lefty{
+    text-align : right;
+    float : right;
+    font-size : 25px;
+    text-decoration: none;
+}body {
+    background-image : url("../Images/robot.jpg");
+   object-fit :fill;
+}
+#Content tr:nth-child(even){
+    background-color: #b8d1f3;
+
+}
+
+#Content tr:nth-child(odd){
+    background-color: #dae5f4;
+
+}
+
+#Content tr:hover {
+    background-color: lightgrey;
+
+}
+
+#Content th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: darkgray;
+  color: white;
+  font-size : 20px;
+}
+
+#Content{
+    width : 70%;
+    font-size : 18px;
+}
+div{
+    text-align:center;
+}
+h1{
+    text-align : center;
+    font-size: 50px;
+}
+
+button{
+    width : 200px;
+    height : 50px;
+    border-radius : 12px;
+    border: 2px solid;
+    padding: 10px;
+    box-shadow: 6px 6px #888888;
+}
+.Top{
+   text-align :left;
+   background-color : white;
+   column-span :all;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+h3{
+     text-decoration: underline;
+}
+
+.lefty{
+    text-align : right;
+    float : right;
+    font-size : 25px;
+    text-decoration: none;
+}

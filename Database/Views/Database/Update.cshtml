@@ -1,0 +1,45 @@
+﻿@model Database_Project.ViewModels.EmployeeViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Update</title>
+    <link href="~/Content/StyleSheets/AddEmployee.css" rel="stylesheet" />
+</head>
+<body>
+    <h1> Update Employee</h1>
+    <br /><br />
+
+    @using (Html.BeginForm("DoUpdate", "Database", FormMethod.Post))
+    {
+        @Html.Hidden("ID", Model.mID)
+        <div class="text">
+            <label>Name: </label>
+            @Html.TextBox("EmployeeName", Model.mName, new { @type = "text", required = "required" })>
+        </div>
+        <div class="text">
+            <label>Surname: </label>
+            @Html.TextBox("EmployeeSurname", Model.mSurname, new { @type = "text", required = "required" })>
+        </div>
+        <div class="text">
+            <label>Salary: </label>
+            @Html.TextBox("EmployeeSalary", Model.mSalary, new { @type = "number", required = "required" })>
+        </div>
+        <div class="text">
+            <label>Age: </label>
+            @Html.TextBox("EmployeeAge", Model.mAge, new { @type = "number", required = "required" })>
+        </div>
+        <div></div><div></div>
+        <div class="but">
+            <button type="submit">Save</button>
+        </div>
+    }
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <link href="~/Content/StyleSheets/AddEmployee.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h1> Add Employee</h1>
+    <br /><br />
+
+    @using (Html.BeginForm("InsertDatabase", "Database", FormMethod.Post))
+    {
+
+        <div class="text">
+            <label>Name: </label>
+            <input type="text" name="EmployeeName" required />
+        </div>
+        <div class="text">
+            <label>Surname: </label>
+            <input type="text" name="EmployeeSurname" required />
+        </div>
+        <div class="text">
+            <label>Salary: </label>
+            <input type="number" min="0" name="EmployeeSalary" required />
+        </div>
+        <div class="text">
+            <label>Age: </label>
+            <input type="number" min="0" name="EmployeeAge" required />
+        </div>
+        <div></div><div></div>
+        <div class="but">
+            <button type="submit">Save</button>
+            <div class="divider"></div>
+            <button name="Cancel" type="button" onclick="window.location.href='@Url.Action("Main", "Database")';"> Cancel</button>
+        </div>
+    }
+
+
+
+
+</body>
+</html>
