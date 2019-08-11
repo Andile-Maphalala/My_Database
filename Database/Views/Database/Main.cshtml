@@ -51,6 +51,47 @@
         </table>
         <br /><br />
         <button onclick="window.location.href='@Url.Action("Add", "Database")';" name="Add"> Add</button>
+
+        <br /><br />
+        <h3> Sort Functions</h3>
+        <br />
+
+        @using (Html.BeginForm("Main", "Database", FormMethod.Post))
+        {
+            <button type="submit" name="Submit" value="SortName"> Sort by Name</button>
+            <div class="divider"></div>
+            <button type="submit" name="Submit" value="SortSurName"> Sort by Surname</button>
+            <div class="divider"></div>
+            <button type="submit" name="Submit" onclick="HowMany()" value="HowMany">How Many Items Are In The List?</button>
+            <div class="divider"></div>
+            <button type="submit" name="Submit" value="SortSalary"> Sort by Salary</button>
+            <div class="divider"></div>
+            <button type="submit" name="Submit" value="SortAge"> Sort by Age</button>
+            <br /><br />
+        }
     </div>
+
+    <script>
+
+            function HowMany(){
+                var count = @Model.Count();
+                var Message;
+                if(count == 0)
+                {
+                    Message = "There are no items in the list"
+                }
+                else if(count == 1)
+                {
+                    Message = "There is only 1 item in the list";
+                }
+                else
+                {
+                    Message = "There are " + count + " Items in the list";
+                }
+
+                alert(Message);
+            }
+
+    </script>
 </body>
 </html>

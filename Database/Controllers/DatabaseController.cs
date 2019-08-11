@@ -27,7 +27,7 @@ namespace Database_Project.Controllers
 
         // GET: Data
         //Home page
-        public ActionResult Main()
+        public ActionResult Main(string Submit)
         {
             //displays objects in the table
             try
@@ -47,6 +47,27 @@ namespace Database_Project.Controllers
                     Employee.mAge = (int)myReader["EmployeeAge"];
                     EmployeeList.Add(Employee);
                 }
+
+                switch (Submit)
+                {
+                    case "SortName":
+                        EmployeeList = OrderbyName(EmployeeList);
+                        break;
+
+                    case "SortSurName":
+                        EmployeeList = OrderbySurName(EmployeeList);
+                        break;
+
+                    case "SortSalary":
+                        EmployeeList = OrderbySalary(EmployeeList);
+                        break;
+
+                    case "SortAge":
+                        EmployeeList = OrderbyAge(EmployeeList);
+                        break;
+
+                }
+
             }
             catch (Exception err)
             {
@@ -141,6 +162,57 @@ namespace Database_Project.Controllers
             }
 
             return RedirectToAction("Main");
+        }
+
+
+        public ActionResult Sort(string Submit)
+        {
+            switch (Submit)
+            {
+                case "SortName":
+                    EmployeeList = OrderbyName(EmployeeList);
+                    break;
+
+                case "SortSurName":
+                    EmployeeList = OrderbySurName(EmployeeList);
+                    break;
+
+                case "SortPrice":
+                    EmployeeList = OrderbySalary(EmployeeList);
+                    break;
+
+                case "SortQuantity":
+                    EmployeeList = OrderbyAge(EmployeeList);
+                    break;
+
+            }
+
+            return RedirectToAction("Main",EmployeeList);
+        }
+
+        private List<EmployeeViewModel> OrderbyName(List<EmployeeViewModel> ListOfItem)
+        {
+            return ListOfItem = EmployeeList.OrderBy(o => o.mName).ToList();
+        }
+
+        private List<EmployeeViewModel> OrderbySurName(List<EmployeeViewModel> ListOfItem)
+        {
+            return ListOfItem = EmployeeList.OrderBy(o => o.mSurname).ToList();
+        }
+
+        private List<EmployeeViewModel> OrderbySalary(List<EmployeeViewModel> ListOfItem)
+        {
+            return ListOfItem = EmployeeList.OrderBy(o => o.mSalary).ToList();
+        }
+
+        private List<EmployeeViewModel> OrderbyAge(List<EmployeeViewModel> ListOfItem)
+        {
+            return ListOfItem = EmployeeList.OrderBy(o => o.mAge).ToList();
+        }
+
+        private int HowManyItem(List<EmployeeViewModel> ListOfItem)
+        {
+            return ListOfItem.Count();
         }
     }
 }
