@@ -47,9 +47,10 @@ namespace Database_Project.Controllers
                     Employee.mAge = (int)myReader["EmployeeAge"];
                     EmployeeList.Add(Employee);
                 }
-
+                //Calls a function based on the value assigned to the button
                 switch (Submit)
                 {
+                //assigns the sorted list to the employee list 
                     case "SortName":
                         EmployeeList = OrderbyName(EmployeeList);
                         break;
@@ -189,7 +190,8 @@ namespace Database_Project.Controllers
 
             return RedirectToAction("Main",EmployeeList);
         }
-
+        
+            // sort functions that return a list that has been ordered
         private List<EmployeeViewModel> OrderbyName(List<EmployeeViewModel> ListOfItem)
         {
             return ListOfItem = EmployeeList.OrderBy(o => o.mName).ToList();
@@ -210,10 +212,7 @@ namespace Database_Project.Controllers
             return ListOfItem = EmployeeList.OrderBy(o => o.mAge).ToList();
         }
 
-        private int HowManyItem(List<EmployeeViewModel> ListOfItem)
-        {
-            return ListOfItem.Count();
-        }
+        
     }
 }
 //Andile Maphalala
